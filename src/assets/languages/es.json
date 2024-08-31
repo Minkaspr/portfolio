@@ -1,0 +1,12 @@
+{
+  "nav": {
+    "brand": "Minkaspr",
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre mi",
+    "language":{
+      "spanish": "Español",
+      "english": "Inglés"
+    }
+  }
+}

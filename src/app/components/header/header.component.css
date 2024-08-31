@@ -1,0 +1,18 @@
+@tailwind components;
+
+@layer components {
+    .nav-link {
+        @apply relative font-semibold;
+    }
+    
+    .nav-link::before {
+        @apply content-[''] absolute w-full h-[2px] 
+        bg-gradient-to-r from-light-primaryContainer to-light-primary 
+        -bottom-[5px] left-0 scale-x-0 
+        transition-transform ease-in-out origin-right duration-500;
+    }
+    
+    .nav-link:hover::before {
+        @apply scale-x-100 origin-left;
+    }
+}
