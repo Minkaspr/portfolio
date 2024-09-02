@@ -19,7 +19,6 @@ export class AppComponent {
   darkThemeIcon = 'assets/icons/folder-filled.svg';
 
   language: string = 'en';
-  translations: any = {};
 
   constructor(private themeService: ThemeService, private languageService: LanguageService) {
     // Recuperar la preferencia guardada al cargar la página
@@ -45,7 +44,7 @@ export class AppComponent {
     }
 
     // Cambiar el favicon en función del tema del navegador
-    this.setFavicon(this.temaOscuro ? this.darkThemeIcon : this.lightThemeIcon);
+    this.setFavicon(temaNavegador ? this.lightThemeIcon : this.darkThemeIcon);
     // Añadir o quitar la clase 'dark' en el elemento <html> según el tema
     if (this.temaOscuro) {
       document.documentElement.classList.add('dark');
@@ -75,24 +74,9 @@ export class AppComponent {
       const browserLanguage = navigator.language || navigator.languages[0];
       this.language = browserLanguage.includes('es') ? 'es' : 'en';
     }
-
-    // Carga las traducciones para el idioma seleccionado
-    this.loadTranslations(this.language);
+    // Log para verificar el idioma detectado
+    console.log(`Idioma detectado: ${this.language}`);
     // Actualiza el idioma en LanguageService
     this.languageService.changeLanguage(this.language);
-  }
-  
-  changeLanguage(event: Event, language: string) {
-    event.preventDefault();
-    this.language = language;
-    localStorage.setItem('language', language);
-    this.loadTranslations(language);
-    this.languageService.changeLanguage(language);
-  }
-
-  loadTranslations(language: string) {
-    /*this.http.get(`/assets/languages/${language}.json`).subscribe(data => {
-      this.translations = data;
-    });*/
   }
 }

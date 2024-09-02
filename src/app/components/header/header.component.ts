@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
+import { LanguageService } from '../../services/language/language.service';
 import { FolderLightIconComponent } from '../icons/folder-light-icon/folder-light-icon.component';
 import { FolderDarkIconComponent } from '../icons/folder-dark-icon/folder-dark-icon.component';
 import { MoonIconComponent } from '../icons/moon-icon/moon-icon.component';
@@ -17,15 +18,31 @@ import { DropdownComponent } from '../dropdown/dropdown.component';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   temaOscuro!: boolean;
   menuVisible: boolean = false;
+  languageOptions: { value: string, label: string}[] = [];
+  translations: any = {};
+  selectedLanguage: string = '';
 
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService, private languageService: LanguageService) {
     // Suscribirse a isDarkTheme en el constructor
     this.themeService.isDarkTheme.subscribe(isDark => {
       this.temaOscuro = isDark;
       this.toggleIcon(isDark);
+    });
+  }
+
+  ngOnInit() {
+    this.languageService.translations.subscribe(translations => {
+      this.translations = translations;
+      this.languageOptions = [
+        { value: 'es', label: translations.nav.language.spanish },
+        { value: 'en', label: translations.nav.language.english }
+      ];
+      this.languageService.currentLanguage.subscribe(language => {
+        this.selectedLanguage = language;
+      });
     });
   }
 
@@ -44,6 +61,10 @@ export class HeaderComponent {
     }
     // Actualizar el estado del tema en ThemeService
     this.themeService.setDarkTheme(this.temaOscuro);
+  }
+
+  onLanguageSelected(language: string) {
+    this.languageService.changeLanguage(language);
   }
 
   toggleIcon(isDark: boolean) {
