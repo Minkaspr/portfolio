@@ -13,10 +13,10 @@ export class DropdownComponent implements OnChanges{
   @Input() options: { value: string, label: string }[] = [];
   @Input() selectedLanguage: string = '';
   @Output() optionSelected = new EventEmitter<string>();
-  isDropdownOpen = false;
-  selectedOption = 'Seleccionar';
 
-  selectedValue: string | null = null;
+  public isDropdownOpen: boolean = false;
+  public selectedOption: string = 'Seleccionar';
+  public selectedValue: string | null = null;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['options'] || changes['selectedLanguage']) {
@@ -24,22 +24,20 @@ export class DropdownComponent implements OnChanges{
     }
   }
 
-  updateSelectedOption() {
+  private updateSelectedOption(): void {
     const selected = this.options.find(option => option.value === this.selectedLanguage);
-    if (selected) {
-      this.selectedOption = selected.label;
-    }
+    this.selectedOption = selected ? selected.label : 'Seleccionar';
   }
 
-  toggleDropdown() {
+  public toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  closeDropdown() {
+  public closeDropdown(): void {
     this.isDropdownOpen = false;
   }
 
-  selectOption(option: { value: string, label: string }) {
+  public selectOption(option: { value: string, label: string }): void {
     this.selectedOption = option.label;
     this.selectedValue = option.value;
     this.optionSelected.emit(option.value);

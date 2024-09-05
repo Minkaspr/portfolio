@@ -1,2 +1,14 @@
-<app-header/>
+@defer{
+<app-header #header />
+<main class="flex flex-col justify-between items-center container m-auto px-4 lg:px-16">
+  <app-hero id="hero"/>
+  <app-projects id="projects"/>
+  <app-about id="about" />
+</main>
 <router-outlet />
+<h1>Hello, {{title}}</h1>
+}@placeholder {
+  <app-loading-placeholder message="Preparando para cargar datos..."/>
+}@loading {
+  <app-loading-placeholder message="Cargando datos..."/>
+}

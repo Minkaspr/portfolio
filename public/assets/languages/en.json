@@ -1,4 +1,5 @@
 {
+  "title": "Portfolio",
   "nav": {
     "brand": "Minkaspr",
     "home": "Home",
@@ -7,6 +8,16 @@
     "language": {
       "spanish": "Spanish",
       "english": "English"
+    }
+  },
+  "hero": {
+    "greeting": "Hello, I'm Dario Quispe",
+    "description": "<strong>Software Engineering</strong> student from Lima, Peru 🇵🇪. With knowledge in software development and information technology.",
+    "contact": "Contact Me",
+    "available": "Available for employment",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/dario-quispe-mk/",
+      "email": "mailto:rubendario99@gmail.com"
     }
   }
 }

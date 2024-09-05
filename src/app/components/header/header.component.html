@@ -1,8 +1,11 @@
 <header class="sticky top-0 z-50 duration-300 bg-light-background dark:bg-dark-background shadow-md">
-  <nav class="relative flex justify-between items-center container m-auto px-4 lg:px-16">
+  <nav [class.container]="!menuVisible" class="relative flex justify-between items-center m-auto px-4 lg:px-16">
     <div class="py-5 flex gap-1">
+      @if (temaOscuro) {
       <app-folder-dark-icon className="w-10" strokeColor="#8ccff1" id="logo-dark" />
+      } @else {
       <app-folder-light-icon className="w-10" fillColor="#156683" id="logo-light" />
+      }
       <span class="font-poppins font-bold text-lg text-light-primary dark:text-dark-primary">Minkaspr</span>
     </div>
     <div [ngClass]="{
@@ -11,25 +14,42 @@
         'absolute top-0 left-0 w-full': true,
         'md:flex md:items-center md:static md:w-auto md:bg-transparent md:p-0': true
       }">
+      @defer(when !isLoading){
       <ul class="flex flex-col md:flex-row justify-center items-center gap-8 h-svh md:h-auto ">
         <li>
-          <a href="/" class="nav-link">{{translations.nav.home}}</a>
+          <a routerLink="/" fragment="hero" class="nav-link">{{translations?.nav?.home}}</a>
         </li>
         <li>
-          <a href="#projects" class="nav-link">{{translations.nav.projects}}</a>
+          <a routerLink="/" fragment="projects" class="nav-link">{{translations?.nav?.projects}}</a>
         </li>
         <li>
-          <a href="#about" class="nav-link">{{translations.nav.about}}</a>
+          <a routerLink="/" fragment="about" class="nav-link">{{translations?.nav?.about}}</a>
         </li>
       </ul>
+      } @loading  {
+        <ul class="animate-pulse flex flex-col md:flex-row justify-center items-center gap-8 h-svh md:h-auto ">
+          <li>
+            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+          </li>
+          <li>
+            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-24"></div>
+          </li>
+          <li>
+            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+          </li>
+        </ul>
+      }
       <div id="nav-close" class="absolute top-6 right-6 text-3xl cursor-pointer md:hidden" (click)="toggleMenu()">
         <app-close-icon className="w-6" />
       </div>
     </div>
     <div class="flex flex-row items-center gap-6">
-
-      <app-dropdown [class.hidden]="menuVisible" [options]="languageOptions" [selectedLanguage]="selectedLanguage"  (optionSelected)="onLanguageSelected($event)"></app-dropdown>
-      
+      @defer(when !isLoading){
+      <app-dropdown [class.hidden]="menuVisible" [options]="languageOptions" [selectedLanguage]="selectedLanguage"
+        (optionSelected)="onLanguageSelected($event)" />
+      } @loading {
+        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
+      }
       <button type="button" (click)="cambiarTema()">
         @if(temaOscuro){
         <app-sun-icon className="w-6" strokeColor="#DCE3E9" />
@@ -37,6 +57,7 @@
         <app-moon-icon className="w-6" strokeColor="#40484C" />
         }
       </button>
+
       <button type="button" class="md:hidden" [class.hidden]="menuVisible" (click)="toggleMenu()">
         <app-menu-icon [strokeColor]="temaOscuro ? '#DCE3E9' : '#40484C'" />
       </button>

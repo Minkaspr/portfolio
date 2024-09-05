@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
 import { LanguageService } from '../../services/language/language.service';
 import { FolderLightIconComponent } from '../icons/folder-light-icon/folder-light-icon.component';
@@ -14,69 +14,71 @@ import { DropdownComponent } from '../dropdown/dropdown.component';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FolderLightIconComponent, FolderDarkIconComponent, MoonIconComponent, SunIconComponent, MenuIconComponent, CloseIconComponent, TranslateIconComponent, DropdownComponent ],
+  imports: [
+    CommonModule, FolderLightIconComponent, FolderDarkIconComponent, 
+    MoonIconComponent, SunIconComponent, MenuIconComponent, CloseIconComponent, 
+    TranslateIconComponent, DropdownComponent 
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit{
-  temaOscuro!: boolean;
-  menuVisible: boolean = false;
-  languageOptions: { value: string, label: string}[] = [];
-  translations: any = {};
-  selectedLanguage: string = '';
+  @Output() sectionSelected = new EventEmitter<string>();
+  
+  public temaOscuro: boolean = false;
+  public menuVisible: boolean = false;
+  public languageOptions: { value: string, label: string }[] = [];
+  public translations: any = {};
+  public selectedLanguage: string = '';
+  public isLoading: boolean = true;
 
-  constructor(private themeService: ThemeService, private languageService: LanguageService) {
-    // Suscribirse a isDarkTheme en el constructor
+  constructor(
+    private themeService: ThemeService,
+    private languageService: LanguageService
+  ) {}
+
+  ngOnInit(): void {
+    this.initTheme();
+    this.initLanguage();
+  }
+
+  private initTheme(): void {
     this.themeService.isDarkTheme.subscribe(isDark => {
       this.temaOscuro = isDark;
-      this.toggleIcon(isDark);
     });
   }
 
-  ngOnInit() {
+  private initLanguage(): void {
     this.languageService.translations.subscribe(translations => {
       this.translations = translations;
       this.languageOptions = [
-        { value: 'es', label: translations.nav.language.spanish },
-        { value: 'en', label: translations.nav.language.english }
+        { value: 'es', label: translations?.nav?.language?.spanish },
+        { value: 'en', label: translations?.nav?.language?.english }
       ];
       this.languageService.currentLanguage.subscribe(language => {
         this.selectedLanguage = language;
       });
     });
+    this.languageService.loadingState.subscribe(loading => {
+      this.isLoading = loading;
+    });
   }
 
-  cambiarTema() {
+  onSectionSelect(sectionId: string): void {
+    this.sectionSelected.emit(sectionId);
+  }
+
+  public cambiarTema(): void {
     this.temaOscuro = !this.temaOscuro;
-    const tema = this.temaOscuro ? 'dark' : 'light';
-
-    // Guardar la preferencia del tema
-    localStorage.setItem('temaActual', tema);
-
-    // Aplicar el tema al document
-    if (this.temaOscuro) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    // Actualizar el estado del tema en ThemeService
+    localStorage.setItem('temaActual', this.temaOscuro ? 'dark' : 'light');
     this.themeService.setDarkTheme(this.temaOscuro);
   }
 
-  onLanguageSelected(language: string) {
+  public onLanguageSelected(language: string): void {
     this.languageService.changeLanguage(language);
   }
 
-  toggleIcon(isDark: boolean) {
-    const logoDark = document.getElementById('logo-dark');
-    const logoLight = document.getElementById('logo-light');
-    if (logoDark && logoLight) {
-      logoDark.style.display = isDark ? 'block' : 'none';
-      logoLight.style.display = isDark ? 'none' : 'block';
-    }
-  }
-
-  toggleMenu() {
+  public toggleMenu(): void {
     this.menuVisible = !this.menuVisible;
   }
 }

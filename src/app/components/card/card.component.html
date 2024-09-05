@@ -1,0 +1,34 @@
+<div
+    class="group outline outline-1 outline-light-outline 
+    rounded-lg max-w-lg p-6 transition-all
+    flex flex-col gap-5 
+    bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow 
+    drop-shadow-md hover:drop-shadow-[0_6px_8px_rgba(21,102,131,0.4)] dark:hover:drop-shadow-[0_6px_8px_rgba(223,243,250,0.25)]">
+    <div class="box-border  overflow-hidden rounded-lg">
+        <img class="group-hover:scale-110 transition-transform" src="assets/img/pomodoro_app.webp" alt="pomodoro_app" />
+    </div>
+    <div class="flex flex-col gap-2">
+        <h3 class="text-lg font-semibold font-poppins">Pomodoro App</h3>
+        <p class="text-base line-clamp-3 text-pretty md:line-clamp-4 text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">Esta es una aplicacion para android con java, sqlite, xml</p>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-0">
+        <div class="inline-flex items-center gap-2">
+            <span class="inline-flex items-center justify-center size-9 rounded-full
+                border border-light-onSurface dark:border-dark-onSurface">
+                <app-java-icon className="size-6" [fillColor]="temaOscuro ? '#DCE3E9' : '#40484C'" />
+            </span>
+            <span class="inline-flex items-center justify-center size-9 rounded-full
+                border border-light-onSurface dark:border-dark-onSurface">
+                <app-android-icon className="size-6" [fillColor]="temaOscuro ? '#DCE3E9' : '#40484C'" />
+            </span>
+            <span class="inline-flex items-center justify-center size-9 rounded-full
+                border border-light-onSurface dark:border-dark-onSurface">
+                <app-sqlite-icon className="size-5" [fillColor]="temaOscuro ? '#DCE3E9' : '#40484C'" />
+            </span>
+        </div>
+        <a href="" class="flex gap-1 font-medium text-ligh-secondary dark:text-dark-secondary">
+            Detalles Aquí
+            <app-arrow-up-right-icon className="size-6" />
+        </a>
+    </div>
+</div>

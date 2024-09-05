@@ -113,6 +113,6 @@
   }
 
   body {
-    transition: background-color .2s ease-in-out;
+    transition: background-color .25s ease-in-out;
   }
 }
