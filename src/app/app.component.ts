@@ -15,45 +15,22 @@ import { AboutComponent } from "./components/about/about.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
-  @ViewChild('header', { static: true }) header!: ElementRef;
-
-  title = 'portfolio'; 
-  activeRoute: ActivatedRoute = inject(ActivatedRoute);
+export class AppComponent{
 
   constructor(
     private themeService: ThemeService, 
     private languageService: LanguageService
   ) { }
 
-  ngOnInit(): void {
-    this.activeRoute.fragment.subscribe((fragment: string | null) => {
-      this.jumpToSection(fragment || 'hero');
+  scrollToSection(sectionId: string): void {
+    const section = document.getElementById(sectionId);
+    const headerOffset = 68; 
+    const elementPosition = section?.getBoundingClientRect().top ?? 0;
+    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
     });
   }
-
-  jumpToSection(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
-  /*scrollToSection(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    console.log('Header:', this.header);
-    console.log('Element:', element);
-    const headerHeight = this.header.nativeElement.offsetHeight;
-  
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerHeight;
-  
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  }*/
-  
 }

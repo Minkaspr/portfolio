@@ -64,7 +64,7 @@ export class HeaderComponent implements OnInit{
     });
   }
 
-  onSectionSelect(sectionId: string): void {
+  public onSectionSelect(sectionId: string): void {
     this.sectionSelected.emit(sectionId);
   }
 

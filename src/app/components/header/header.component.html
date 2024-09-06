@@ -17,13 +17,13 @@
       @defer(when !isLoading){
       <ul class="flex flex-col md:flex-row justify-center items-center gap-8 h-svh md:h-auto ">
         <li>
-          <a routerLink="/" fragment="hero" class="nav-link">{{translations?.nav?.home}}</a>
+          <a (click)="onSectionSelect('hero')" class="nav-link">{{translations?.nav?.home}}</a>
         </li>
         <li>
-          <a routerLink="/" fragment="projects" class="nav-link">{{translations?.nav?.projects}}</a>
+          <a (click)="onSectionSelect('projects')" class="nav-link">{{translations?.nav?.projects}}</a>
         </li>
         <li>
-          <a routerLink="/" fragment="about" class="nav-link">{{translations?.nav?.about}}</a>
+          <a (click)="onSectionSelect('about')" class="nav-link">{{translations?.nav?.about}}</a>
         </li>
       </ul>
       } @loading  {
