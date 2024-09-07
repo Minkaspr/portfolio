@@ -8,11 +8,18 @@
     .nav-link::before {
         @apply content-[''] absolute w-full h-[2px] 
         bg-gradient-to-r from-light-primaryContainer to-light-primary 
+        dark:from-dark-primaryContainer dark:to-dark-primary
         -bottom-[5px] left-0 scale-x-0 
-        transition-transform ease-in-out origin-right duration-500;
+        transition ease-in-out origin-right duration-500;
     }
     
     .nav-link:hover::before {
         @apply scale-x-100 origin-left;
+    }
+
+    .nav-link.active::before {
+        @apply scale-x-100 origin-left 
+        bg-gradient-to-r from-light-primary to-light-primary 
+        dark:from-dark-primary dark:to-dark-primary;
     }
 }

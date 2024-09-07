@@ -17,14 +17,14 @@ export class ThemeService {
 
   private initializeTheme(): void {
     const isBrowserDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('temaActual');
+    const savedTheme = localStorage.getItem('currentTheme');
 
     if (savedTheme) {
       this.setDarkTheme(savedTheme === 'dark');
     } else {
       this.setDarkTheme(isBrowserDarkMode);
       const theme = isBrowserDarkMode ? 'dark' : 'light';
-      localStorage.setItem('temaActual', theme);
+      localStorage.setItem('currentTheme', theme);
     }
     this.updateFavicon();
   }

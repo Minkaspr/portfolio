@@ -1,7 +1,7 @@
 <header class="sticky top-0 z-50 duration-300 bg-light-background dark:bg-dark-background shadow-md">
   <nav [class.container]="!menuVisible" class="relative flex justify-between items-center m-auto px-4 lg:px-16">
     <div class="py-5 flex gap-1">
-      @if (temaOscuro) {
+      @if (darkTheme) {
       <app-folder-dark-icon className="w-10" strokeColor="#8ccff1" id="logo-dark" />
       } @else {
       <app-folder-light-icon className="w-10" fillColor="#156683" id="logo-light" />
@@ -17,27 +17,42 @@
       @defer(when !isLoading){
       <ul class="flex flex-col md:flex-row justify-center items-center gap-8 h-svh md:h-auto ">
         <li>
-          <a (click)="onSectionSelect('hero')" class="nav-link">{{translations?.nav?.home}}</a>
+          <a 
+            (click)="onSectionSelect('hero')" 
+            class="nav-link" 
+            [ngClass]="{'active': activeSection === 'hero'}">
+            {{translations?.nav?.home}}
+          </a>
         </li>
         <li>
-          <a (click)="onSectionSelect('projects')" class="nav-link">{{translations?.nav?.projects}}</a>
+          <a 
+            (click)="onSectionSelect('projects')" 
+            class="nav-link"
+            [ngClass]="{'active': activeSection === 'projects'}">
+            {{translations?.nav?.projects}}
+          </a>
         </li>
         <li>
-          <a (click)="onSectionSelect('about')" class="nav-link">{{translations?.nav?.about}}</a>
+          <a 
+            (click)="onSectionSelect('about')" 
+            class="nav-link"
+            [ngClass]="{'active': activeSection === 'about'}">
+            {{translations?.nav?.about}}
+          </a>
         </li>
       </ul>
-      } @loading  {
-        <ul class="animate-pulse flex flex-col md:flex-row justify-center items-center gap-8 h-svh md:h-auto ">
-          <li>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
-          </li>
-          <li>
-            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-24"></div>
-          </li>
-          <li>
-            <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
-          </li>
-        </ul>
+      } @loading {
+      <ul class="animate-pulse flex flex-col md:flex-row justify-center items-center gap-8 h-svh md:h-auto ">
+        <li>
+          <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+        </li>
+        <li>
+          <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-24"></div>
+        </li>
+        <li>
+          <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+        </li>
+      </ul>
       }
       <div id="nav-close" class="absolute top-6 right-6 text-3xl cursor-pointer md:hidden" (click)="toggleMenu()">
         <app-close-icon className="w-6" />
@@ -48,10 +63,10 @@
       <app-dropdown [class.hidden]="menuVisible" [options]="languageOptions" [selectedLanguage]="selectedLanguage"
         (optionSelected)="onLanguageSelected($event)" />
       } @loading {
-        <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
+      <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
       }
-      <button type="button" (click)="cambiarTema()">
-        @if(temaOscuro){
+      <button type="button" (click)="toggleTheme()">
+        @if(darkTheme){
         <app-sun-icon className="w-6" strokeColor="#DCE3E9" />
         } @else {
         <app-moon-icon className="w-6" strokeColor="#40484C" />
@@ -59,7 +74,7 @@
       </button>
 
       <button type="button" class="md:hidden" [class.hidden]="menuVisible" (click)="toggleMenu()">
-        <app-menu-icon [strokeColor]="temaOscuro ? '#DCE3E9' : '#40484C'" />
+        <app-menu-icon [strokeColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
       </button>
     </div>
   </nav>

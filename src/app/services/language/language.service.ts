@@ -39,21 +39,21 @@ export class LanguageService {
   }
 
   private loadTranslations(language: string): void {
-    this._loadingState.next(true); // Comienza la carga
+    this._loadingState.next(true); 
     this.http.get(`${this.translationsPath}${language}.json`).subscribe({
       next: (translations: any) => {
         this._translations.next(translations);
-        this._loadingState.next(false); // Termina la carga cuando las traducciones están listas
+        this._loadingState.next(false); 
       },
       error: () => {
         this._translations.next({});
-        this._loadingState.next(false); // Termina la carga incluso en caso de error
+        this._loadingState.next(false);
       }
     });
   }
 
   private updateHtmlLang(language: string): void {
-    document.documentElement.lang = language; // Cambia el atributo lang del <html>
+    document.documentElement.lang = language; 
   }
 
   public get translations() {
@@ -65,7 +65,7 @@ export class LanguageService {
   }
 
   public get loadingState() {
-    return this._loadingState.asObservable(); // Expone el estado de carga
+    return this._loadingState.asObservable();
   }
 
   public changeLanguage(language: string): void {

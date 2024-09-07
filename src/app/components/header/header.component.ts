@@ -25,12 +25,13 @@ import { DropdownComponent } from '../dropdown/dropdown.component';
 export class HeaderComponent implements OnInit{
   @Output() sectionSelected = new EventEmitter<string>();
   
-  public temaOscuro: boolean = false;
-  public menuVisible: boolean = false;
-  public languageOptions: { value: string, label: string }[] = [];
-  public translations: any = {};
-  public selectedLanguage: string = '';
+  public activeSection: string = 'hero';
+  public darkTheme: boolean = false;
   public isLoading: boolean = true;
+  public translations: any = {};
+  public languageOptions: { value: string, label: string }[] = [];
+  public selectedLanguage: string = '';
+  public menuVisible: boolean = false;
 
   constructor(
     private themeService: ThemeService,
@@ -44,7 +45,7 @@ export class HeaderComponent implements OnInit{
 
   private initTheme(): void {
     this.themeService.isDarkTheme.subscribe(isDark => {
-      this.temaOscuro = isDark;
+      this.darkTheme = isDark;
     });
   }
 
@@ -66,12 +67,13 @@ export class HeaderComponent implements OnInit{
 
   public onSectionSelect(sectionId: string): void {
     this.sectionSelected.emit(sectionId);
+    this.activeSection = sectionId;
   }
 
-  public cambiarTema(): void {
-    this.temaOscuro = !this.temaOscuro;
-    localStorage.setItem('temaActual', this.temaOscuro ? 'dark' : 'light');
-    this.themeService.setDarkTheme(this.temaOscuro);
+  public toggleTheme(): void {
+    this.darkTheme = !this.darkTheme;
+    localStorage.setItem('currentTheme', this.darkTheme ? 'dark' : 'light');
+    this.themeService.setDarkTheme(this.darkTheme);
   }
 
   public onLanguageSelected(language: string): void {

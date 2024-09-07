@@ -1,5 +1,5 @@
-import { Component, ViewChild, ElementRef, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { ThemeService } from './services/theme/theme.service';
 import { LanguageService } from './services/language/language.service';
@@ -15,16 +15,16 @@ import { AboutComponent } from "./components/about/about.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent{
+export class AppComponent {
 
   constructor(
-    private themeService: ThemeService, 
+    private themeService: ThemeService,
     private languageService: LanguageService
   ) { }
 
   scrollToSection(sectionId: string): void {
     const section = document.getElementById(sectionId);
-    const headerOffset = 68; 
+    const headerOffset = 68;
     const elementPosition = section?.getBoundingClientRect().top ?? 0;
     const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
