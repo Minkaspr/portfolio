@@ -9,5 +9,4 @@ import { Component, Input } from '@angular/core';
 })
 export class SocialPillComponent {
   @Input() href: string = '#';
-  @Input() texto: string = 'Texto por defecto';
 }

@@ -19,5 +19,13 @@
       "linkedin": "https://www.linkedin.com/in/dario-quispe-mk/",
       "email": "mailto:rubendario99@gmail.com"
     }
+  },
+  "projects": {
+    "title": "My Projects",
+    "cards": {
+      "details": "Details here"
+    },
+    "noProjects": "Projects not available",
+    "loadMore": "Load More"
   }
 }

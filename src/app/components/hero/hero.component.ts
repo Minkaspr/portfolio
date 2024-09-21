@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme/theme.service';
 import { BadgeComponent } from '../badge/badge.component';
@@ -23,17 +23,17 @@ import { Observable } from 'rxjs';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
-export class HeroComponent implements OnInit{
-  temaOscuro!: boolean;
-  translations$: Observable<any>;
+export class HeroComponent{
+  public darkTheme!: boolean;
+  public translations$: Observable<any>;
 
-  constructor(private themeService: ThemeService, private languageService: LanguageService) {
-    // Suscribirse a isDarkTheme en el constructor
+  constructor(
+    private themeService: ThemeService, 
+    private languageService: LanguageService
+    ) {
     this.themeService.isDarkTheme.subscribe(isDark => {
-      this.temaOscuro = isDark;
+      this.darkTheme = isDark;
     });
     this.translations$ = this.languageService.translations;
   }
-
-  ngOnInit(): void {}
 }

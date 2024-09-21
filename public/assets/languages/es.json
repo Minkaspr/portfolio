@@ -19,5 +19,50 @@
       "linkedin": "https://www.linkedin.com/in/dario-quispe-mk/",
       "email": "mailto:rubendario99@gmail.com"
     }
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "cards": {
+      "details": "Detalles aquí"
+    },
+    "noProjects": "Proyectos no disponibles",
+    "loadMore": "Cargar Más"
+  },
+  "aboutUs": {
+    "title": "Sobre mi",
+    "skills": {
+      "title": "Professional Skills",
+      "platforms": ["Desarrollo Web", "Desarrollo Android"],
+      "sections": [
+        {
+          "category": "Lenguajes de Programación",
+          "items": ["Java", "PHP", "JavaScript", "TypeScript"]
+        },
+        {
+          "category": "Frameworks",
+          "items": ["Angular (Front-end)", "Spring Boot (Back-end)", "Tailwind", "Bootstrap"]
+        },
+        {
+          "category": "Bases de Datos",
+          "items": ["MySQL", "SQLite"]
+        },
+        {
+          "category": "Herramientas de Desarrollo",
+          "items": ["VSCode", "Netbeans", "IntelliJ IDEA", "Android Studio", "Project IDX"]
+        },
+        {
+          "category": "Gestión de Proyectos",
+          "items": ["Scrum", "Kanban"]
+        },
+        {
+          "category": "Otras Herramientas",
+          "items": ["Microsoft Project", "Bizagi", "Git", "GitHub", "Jira"]
+        },
+        {
+          "category": "Prototipado",
+          "items": ["Figma"]
+        }
+      ]
+    }
   }
 }

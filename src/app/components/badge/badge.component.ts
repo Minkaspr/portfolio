@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './badge.component.css'
 })
 export class BadgeComponent {
-  @Input() texto: string = 'Texto por defecto';
+  @Input() text: string = 'Texto por defecto';
 }

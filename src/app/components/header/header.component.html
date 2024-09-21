@@ -1,16 +1,16 @@
 <header class="sticky top-0 z-50 duration-300 bg-light-background dark:bg-dark-background shadow-md">
-  <nav [class.container]="!menuVisible" class="relative flex justify-between items-center m-auto px-4 lg:px-16">
-    <div class="py-5 flex gap-1">
+  <nav [class.container]="!visibleMenu" class="relative flex justify-between items-center m-auto px-4 lg:px-16">
+    <div class="py-5 flex gap-3">
       @if (darkTheme) {
-      <app-folder-dark-icon className="w-10" strokeColor="#8ccff1" id="logo-dark" />
+      <app-folder-dark-icon className="h-7" strokeColor="#8ccff1" id="logo-dark" />
       } @else {
-      <app-folder-light-icon className="w-10" fillColor="#156683" id="logo-light" />
+      <app-folder-light-icon className="h-7" fillColor="#156683" id="logo-light" />
       }
       <span class="font-poppins font-bold text-lg text-light-primary dark:text-dark-primary">Minkaspr</span>
     </div>
     <div [ngClass]="{
-        'hidden': !menuVisible,
-        'bg-light-background dark:bg-dark-background': menuVisible,
+        'hidden': !visibleMenu,
+        'bg-light-background dark:bg-dark-background': visibleMenu,
         'absolute top-0 left-0 w-full': true,
         'md:flex md:items-center md:static md:w-auto md:bg-transparent md:p-0': true
       }">
@@ -60,7 +60,7 @@
     </div>
     <div class="flex flex-row items-center gap-6">
       @defer(when !isLoading){
-      <app-dropdown [class.hidden]="menuVisible" [options]="languageOptions" [selectedLanguage]="selectedLanguage"
+      <app-dropdown [class.hidden]="visibleMenu" [options]="languageOptions" [selectedLanguage]="selectedLanguage"
         (optionSelected)="onLanguageSelected($event)" />
       } @loading {
       <div class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
@@ -73,7 +73,7 @@
         }
       </button>
 
-      <button type="button" class="md:hidden" [class.hidden]="menuVisible" (click)="toggleMenu()">
+      <button type="button" class="md:hidden" [class.hidden]="visibleMenu" (click)="toggleMenu()">
         <app-menu-icon [strokeColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
       </button>
     </div>

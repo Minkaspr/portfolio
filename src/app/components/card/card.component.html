@@ -1,34 +1,49 @@
 <div
-    class="group outline outline-1 outline-light-outline 
+  class="group outline outline-1 outline-light-outline 
     rounded-lg max-w-lg p-6 transition-all
-    flex flex-col gap-5 
+    flex flex-col gap-5 h-full
     bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow 
     drop-shadow-md hover:drop-shadow-[0_6px_8px_rgba(21,102,131,0.4)] dark:hover:drop-shadow-[0_6px_8px_rgba(223,243,250,0.25)]">
-    <div class="box-border  overflow-hidden rounded-lg">
-        <img class="group-hover:scale-110 transition-transform" src="assets/img/pomodoro_app.webp" alt="pomodoro_app" />
-    </div>
+  <div class="box-border rounded-lg overflow-hidden ">
+    <img class="group-hover:scale-110 transition-transform" [src]="project.imageUrl" [alt]="project.title" draggable="false"/>
+  </div>
+  <div class="flex flex-col justify-between gap-5">
     <div class="flex flex-col gap-2">
-        <h3 class="text-lg font-semibold font-poppins">Pomodoro App</h3>
-        <p class="text-base line-clamp-3 text-pretty md:line-clamp-4 text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">Esta es una aplicacion para android con java, sqlite, xml</p>
+      <h3 class="text-lg font-semibold font-poppins">{{ project.title }}</h3>
+      <p
+        class="text-base line-clamp-4 text-pretty md:line-clamp-4 text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
+        {{ project.description }}</p>
     </div>
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-0">
-        <div class="inline-flex items-center gap-2">
-            <span class="inline-flex items-center justify-center size-9 rounded-full
-                border border-light-onSurface dark:border-dark-onSurface">
-                <app-java-icon className="size-6" [fillColor]="temaOscuro ? '#DCE3E9' : '#40484C'" />
-            </span>
-            <span class="inline-flex items-center justify-center size-9 rounded-full
-                border border-light-onSurface dark:border-dark-onSurface">
-                <app-android-icon className="size-6" [fillColor]="temaOscuro ? '#DCE3E9' : '#40484C'" />
-            </span>
-            <span class="inline-flex items-center justify-center size-9 rounded-full
-                border border-light-onSurface dark:border-dark-onSurface">
-                <app-sqlite-icon className="size-5" [fillColor]="temaOscuro ? '#DCE3E9' : '#40484C'" />
-            </span>
-        </div>
-        <a href="" class="flex gap-1 font-medium text-ligh-secondary dark:text-dark-secondary">
-            Detalles Aquí
-            <app-arrow-up-right-icon className="size-6" />
-        </a>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-0 ">
+      @let translations = translations$ | async;
+      @let darkTheme = darkTheme$ | async;
+      <div class="inline-flex items-center gap-2">
+        @for (tech of project.technologies; track tech) {
+        <span class="inline-flex items-center justify-center size-9 rounded-full
+                    border border-light-onSurface dark:border-dark-onSurface">
+          @switch(tech) {
+          @case ('java') {
+          <app-java-icon className="size-6" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+          }
+          @case ('android') {
+          <app-android-icon className="size-6" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+          }
+          @case ('sqlite') {
+          <app-sqlite-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+          }
+          @default {
+          <span> {{ tech }}</span>
+          }
+          }
+        </span>
+        }
+      </div>
+      <a [href]="project.detailsUrl" target="_blank"
+        class="flex rounded-lg gap-1 font-medium text-ligh-secondary dark:text-dark-secondary transition
+        hover:bg-light-secondaryContainer hover:dark:bg-dark-secondaryContainer px-4 py-2">
+        {{ translations?.projects.cards.details }}
+        <app-arrow-up-right-icon className="size-6" />
+      </a>
     </div>
+  </div>
 </div>

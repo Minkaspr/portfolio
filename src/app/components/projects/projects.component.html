@@ -1,9 +1,18 @@
-<section class="my-10">
-    <h2 class="text-2xl font-bold text-center">Mis proyectos</h2>
-    <div class="py-8 grid gap-6 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
-        <app-card/>
-        <app-card/>
-        <app-card/>
-        <app-card/>
-    </div>
+<section class="my-6 flex flex-col justify-center items-center">
+  <h2 class="text-3xl font-bold text-center">{{ translations.projects.title }}</h2>
+  <div class="py-8 grid gap-6 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 auto-rows-fr">
+    @for (project of displayedProjects; track project.id) {
+    <app-card [project]="project"></app-card>
+    } @empty {
+    <p class="text-center">{{ translations.projects.noProjects }}</p>
+    }
+  </div>
+  @if (displayedProjects.length < projects.length) {
+    <button 
+    (click)="loadMore()" 
+    class="bg-transparent hover:bg-light-surfaceContainerLow hover:dark:bg-dark-surfaceContainerLow inline-flex
+     text-gray-800 dark:text-gray-100 font-regular py-2 px-4 border border-gray-400 rounded-lg shadow">
+      {{ translations.projects.loadMore }}
+    </button>
+  }
 </section>

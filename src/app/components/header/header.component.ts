@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit{
   public translations: any = {};
   public languageOptions: { value: string, label: string }[] = [];
   public selectedLanguage: string = '';
-  public menuVisible: boolean = false;
+  public visibleMenu: boolean = false;
 
   constructor(
     private themeService: ThemeService,
@@ -68,6 +68,9 @@ export class HeaderComponent implements OnInit{
   public onSectionSelect(sectionId: string): void {
     this.sectionSelected.emit(sectionId);
     this.activeSection = sectionId;
+    if (this.visibleMenu) {
+      this.toggleMenu();
+    }
   }
 
   public toggleTheme(): void {
@@ -81,6 +84,6 @@ export class HeaderComponent implements OnInit{
   }
 
   public toggleMenu(): void {
-    this.menuVisible = !this.menuVisible;
+    this.visibleMenu = !this.visibleMenu;
   }
 }
