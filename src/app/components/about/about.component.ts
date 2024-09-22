@@ -15,6 +15,7 @@ import { BoneIconComponent } from '../icons/bone-icon/bone-icon.component';
 import { UserIconComponent } from '../icons/user-icon/user-icon.component';
 import { AffiliateIconComponent } from '../icons/affiliate-icon/affiliate-icon.component';
 import { AtIconComponent } from '../icons/at-icon/at-icon.component';
+import { CardSkillSectionComponent } from "../card-skill-section/card-skill-section.component";
 
 @Component({
   selector: 'app-about',
@@ -32,7 +33,8 @@ import { AtIconComponent } from '../icons/at-icon/at-icon.component';
     BoneIconComponent,
     UserIconComponent,
     AffiliateIconComponent,
-    AtIconComponent
+    AtIconComponent,
+    CardSkillSectionComponent
 ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'

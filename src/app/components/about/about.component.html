@@ -10,15 +10,10 @@
           text-light-primary dark:text-dark-primary text-xs font-medium me-2 px-1.5 py-1.5 rounded-lg">
             <app-user-icon />
           </div>
-          ¿Quién Soy?
+          {{ translations.aboutUs.sections[0].title }}
         </h3>
         <p class="tracking-wide text-pretty">
-          Soy un entusiasta del desarrollo de software,siempre buscando crear soluciones innovadoras para
-          situaciones prácticas.
-          He trabajado en el desarrollo de aplicaciones web y móviles, participando en todas las fases del
-          proyecto, desde la planificación hasta la implementación. Me interesa todo el proceso de desarrollo de
-          software, asegurando que las aplicaciones no solo resuelvan problemas, sino que también ofrezcan una
-          excelente experiencia al usuario.
+          {{ translations.aboutUs.sections[0].content }}
         </p>
       </div>
       <div class="flex flex-col gap-2">
@@ -27,13 +22,10 @@
           text-light-primary dark:text-dark-primary text-xs font-medium me-2 px-1.5 py-1.5 rounded-lg">
             <app-affiliate-icon />
           </div>
-          ¿Cómo Trabajo?
+          {{ translations.aboutUs.sections[1].title }}
         </h3>
         <p class="tracking-wide text-pretty">
-          Valoro el trabajo en equipo y creo que la comunicación y el compromiso son esenciales para el éxito. Me
-          gusta colaborar con otros desarrolladores y recibir retroalimentación para mejorar continuamente. En mi
-          tiempo libre, disfruto escuchando música y explorando nuevas tecnologías a través de videos y
-          tutoriales.
+          {{ translations.aboutUs.sections[1].content }}
         </p>
       </div>
       <div class="flex flex-col gap-2">
@@ -42,104 +34,77 @@
           text-light-primary dark:text-dark-primary text-xs font-medium me-2 px-1.5 py-1.5 rounded-lg">
             <app-at-icon />
           </div>
-          Mi Nickname
+          {{ translations.aboutUs.sections[2].title }}
         </h3>
-        <p class="tracking-wide text-balance ">
-          Mi nick, <span class="font-medium">Minkasper</span>, es un acrónimo que rinde homenaje a mis queridas
-          mascotas,
-          <span class="inline-flex items-center align-bottom gap-2"><app-fish-icon className="w-6" /> min</span> y
-          <span class="inline-flex items-center align-bottom gap-2"><app-bone-icon className="w-5" />
-            kasper</span>
+        <p class="tracking-wide text-balance">
+          {{ translations.aboutUs.sections[2].content.textPrefix }} <strong>{{ translations.brand }}</strong>{{ translations.aboutUs.sections[2].content.textMiddle }}
+          <span class="inline-flex items-center align-bottom gap-2"><app-fish-icon className="w-6" /> {{ translations.aboutUs.sections[2].content.textMin }}</span> 
+          {{ translations.aboutUs.sections[2].content.textAnd }}
+          <span class="inline-flex items-center align-bottom gap-2"><app-bone-icon className="w-5" /> {{ translations.aboutUs.sections[2].content.textKasper }}</span>
         </p>
       </div>
     </div>
     <div class="flex-1">
-      <h3 class="text-2xl font-semibold">Habilidades Profesionales</h3>
+      <h3 class="text-2xl font-semibold">{{ translations.aboutUs.sections[3].title }}</h3>
       <span class="
             bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow  
             text-light-primary dark:text-dark-primary text-xs font-medium me-2 px-3 py-1 rounded-lg ">
-        Desarrollo Web
+        {{ translations.aboutUs.sections[3].platforms[0] }}
       </span>
       <span class="
             bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow  
             text-light-primary dark:text-dark-primary text-xs font-medium me-2 px-3 py-1 rounded-lg ">
-        Desarrollo Android
+        {{ translations.aboutUs.sections[3].platforms[1] }}
       </span>
       <ul class="flex flex-col gap-4 mt-4">
-        <li class="flex flex-row gap-4 items-center">
-          <div
-            class="flex-none w-16 h-16 flex justify-center items-center bg-light-surfaceContainer dark:bg-dark-surfaceContainer rounded-lg">
+        <li>
+          <app-card-skill-section 
+            textTitle="{{ translations.aboutUs.sections[3].items[0].title }}"
+            textDescription="{{ translations.aboutUs.sections[3].items[0].content }}">
             <app-code-icon className="w-8 h-8" [strokeColor]="darkTheme ? '#417386' : '#023042'" />
-          </div>
-          <div class="grow flex flex-col gap-1">
-            <h4 class="text-xl font-semibold">Lenguajes de Programación</h4>
-            <p class="text-[#023042] dark:text-dark-onSurfaceVariant font-medium">Java, PHP, JavaScript,
-              TypeScript</p>
-          </div>
+          </app-card-skill-section>
         </li>
-        <li class="flex flex-row gap-4 items-center">
-          <div
-            class="flex-none w-16 h-16 flex justify-center items-center bg-light-surfaceContainer dark:bg-dark-surfaceContainer rounded-lg">
+        <li>
+          <app-card-skill-section 
+            textTitle="{{ translations.aboutUs.sections[3].items[1].title }}"
+            textDescription="{{ translations.aboutUs.sections[3].items[1].content }}">
             <app-framework-icon className="w-8 h-8" [strokeColor]="darkTheme ? '#417386' : '#023042'" />
-          </div>
-          <div class="grow flex flex-col gap-1">
-            <h4 class="text-xl font-semibold">Frameworks</h4>
-            <p class="text-[#023042] dark:text-dark-onSurfaceVariant font-medium text-balance">Angular (Front-end),
-              Spring Boot (Back-end), Tailwind, Bootstrap</p>
-          </div>
+          </app-card-skill-section>
         </li>
-        <li class="flex flex-row gap-4 items-center">
-          <div
-            class="flex-none w-16 h-16 flex justify-center items-center bg-light-surfaceContainer dark:bg-dark-surfaceContainer rounded-lg">
+        <li>
+          <app-card-skill-section 
+            textTitle="{{ translations.aboutUs.sections[3].items[2].title }}"
+            textDescription="{{ translations.aboutUs.sections[3].items[2].content }}">
             <app-database-icon className="w-8 h-8" [strokeColor]="darkTheme ? '#417386' : '#023042'" />
-          </div>
-          <div class="grow flex flex-col gap-1">
-            <h4 class="text-xl font-semibold">Bases de Datos</h4>
-            <p class="text-[#023042] dark:text-dark-onSurfaceVariant font-medium">MySQL, SQLite</p>
-          </div>
-
+          </app-card-skill-section>
         </li>
-        <li class="flex flex-row gap-4 items-center">
-          <div
-            class="flex-none w-16 h-16 flex justify-center items-center bg-light-surfaceContainer dark:bg-dark-surfaceContainer rounded-lg">
+        <li>
+          <app-card-skill-section 
+            textTitle="{{ translations.aboutUs.sections[3].items[3].title }}"
+            textDescription="{{ translations.aboutUs.sections[3].items[3].content }}">
             <app-dev-tools-icon className="w-8 h-8" [strokeColor]="darkTheme ? '#417386' : '#023042'" />
-          </div>
-          <div class="grow flex flex-col gap-1">
-            <h4 class="text-xl font-semibold">Herramientas de Desarrollo</h4>
-            <p class="text-[#023042] dark:text-dark-onSurfaceVariant font-medium">VSCode, Netbeans, IntelliJ
-              IDEA, Android Studio, IDX</p>
-          </div>
+          </app-card-skill-section>
         </li>
-        <li class="flex flex-row gap-4 items-center">
-          <div
-            class="flex-none w-16 h-16 flex justify-center items-center bg-light-surfaceContainer dark:bg-dark-surfaceContainer rounded-lg">
+        <li>
+          <app-card-skill-section 
+            textTitle="{{ translations.aboutUs.sections[3].items[4].title }}"
+            textDescription="{{ translations.aboutUs.sections[3].items[4].content }}">
             <app-project-management-icon className="w-8 h-8" [strokeColor]="darkTheme ? '#417386' : '#023042'" />
-          </div>
-          <div class="grow flex flex-col gap-1">
-            <h4 class="text-xl font-semibold">Gestión de Proyectos</h4>
-            <p class="text-[#023042] dark:text-dark-onSurfaceVariant font-medium">Scrum, Kanban</p>
-          </div>
+          </app-card-skill-section>
         </li>
-        <li class="flex flex-row gap-4 items-center">
-          <div
-            class="flex-none w-16 h-16 flex justify-center items-center bg-light-surfaceContainer dark:bg-dark-surfaceContainer rounded-lg">
+        <li>
+          <app-card-skill-section 
+            textTitle="{{ translations.aboutUs.sections[3].items[5].title }}"
+            textDescription="{{ translations.aboutUs.sections[3].items[5].content }}">
             <app-work-tools-icon className="w-8 h-8" [strokeColor]="darkTheme ? '#417386' : '#023042'" />
-          </div>
-          <div class="grow flex flex-col gap-1">
-            <h4 class="text-xl font-semibold">Otras Herramientas</h4>
-            <p class="text-[#023042] dark:text-dark-onSurfaceVariant font-medium">Microsoft Project, Bizagi,
-              Git, GitHub, Jira</p>
-          </div>
+          </app-card-skill-section>
         </li>
-        <li class="flex flex-row gap-4 items-center">
-          <div
-            class="flex-none w-16 h-16 flex justify-center items-center bg-light-surfaceContainer dark:bg-dark-surfaceContainer rounded-lg">
+        <li>
+          <app-card-skill-section 
+            textTitle="{{ translations.aboutUs.sections[3].items[6].title }}"
+            textDescription="{{ translations.aboutUs.sections[3].items[6].content }}">
             <app-prototyping-icon className="w-8 h-8" [strokeColor]="darkTheme ? '#417386' : '#023042'" />
-          </div>
-          <div class="grow flex flex-col gap-1">
-            <h4 class="text-xl font-semibold">Prototipado</h4>
-            <p class="text-[#023042] dark:text-dark-onSurfaceVariant font-medium">Figma</p>
-          </div>
+          </app-card-skill-section>
         </li>
       </ul>
     </div>

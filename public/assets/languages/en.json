@@ -1,7 +1,7 @@
 {
   "title": "Portfolio",
+  "brand": "Minkaspr",
   "nav": {
-    "brand": "Minkaspr",
     "home": "Home",
     "projects": "Projects",
     "about": "About",
@@ -27,5 +27,86 @@
     },
     "noProjects": "Projects not available",
     "loadMore": "Load More"
+  },
+  "aboutUs": {
+    "title": "About Me",
+    "sections": [
+      {
+        "title": "Who Am I?",
+        "content": "I am a software development enthusiast, always looking to create innovative solutions for practical situations. I have worked on the development of web and mobile applications, participating in all phases of the project, from planning to implementation. I am interested in the entire software development process, ensuring that applications not only solve problems but also provide an excellent user experience."
+      },
+      {
+        "title": "How Do I Work?",
+        "content": "I value teamwork and believe that communication and commitment are essential for success. I enjoy collaborating with other developers and receiving feedback to continuously improve. In my free time, I enjoy listening to music and exploring new technologies through videos and tutorials."
+      },
+      {
+        "title": "My Nickname",
+        "content": {
+          "textPrefix": "My nickname, ",
+          "textMiddle": ", is an acronym that pays homage to my beloved pets,",
+          "textMin": "Min",
+          "textAnd": "and",
+          "textKasper": "Kasper."
+        }
+      },
+      {
+        "title": "Professional Skills",
+        "platforms": [
+          "Web Development",
+          "Android Development"
+        ],
+        "items": [
+          {
+            "title": "Programming Languages",
+            "content": "Java, PHP, JavaScript, TypeScript"
+          },
+          {
+            "title": "Frameworks",
+            "content": "Angular (Front-end), Spring Boot (Back-end), Tailwind, Bootstrap"
+          },
+          {
+            "title": "Databases",
+            "content": "MySQL, SQLite"
+          },
+          {
+            "title": "Development Tools",
+            "content": "VSCode, Netbeans, IntelliJ IDEA, Android Studio, Project IDX"
+          },
+          {
+            "title": "Project Management",
+            "content": "Scrum, Kanban"
+          },
+          {
+            "title": "Other Tools",
+            "content": "Microsoft Project, Bizagi, Git, GitHub, Jira, Notion"
+          },
+          {
+            "title": "Prototyping",
+            "content": "Figma"
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "message": "Thank you for visiting my portfolio. I hope you find my projects interesting and useful.",
+    "connect": {
+      "title": "Connect with me",
+      "links":  [
+        {
+          "name": "LinkedIn",
+          "url": "https://www.linkedin.com/in/dario-quispe-mk"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com/Minkaspr"
+        },
+        {
+          "name": "Telegram",
+          "url": "https://t.me/minkaspr?start=Hola%20me%20gustaría%20contactarte"
+        }
+      ]
+    },
+    "copyright": "Copyright © 2024 | All rights reserved."
   }
 }
