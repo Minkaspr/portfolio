@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { CardComponent } from "../card/card.component";
 import { Project } from '../../models/project';
 import { ApiService } from '../../services/api/api.service';
@@ -12,6 +12,9 @@ import { LanguageService } from '../../services/language/language.service';
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent implements OnInit{
+
+  @Input() sectionId: string = '';
+
   public translations: any = {};
   projects: Project[] = [];
   error: string | null = null;

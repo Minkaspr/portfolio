@@ -1,5 +1,5 @@
 <div
-  class="group outline outline-1 outline-light-outline 
+  class="group 
     rounded-lg max-w-lg p-6 transition-all
     flex flex-col gap-5 h-full
     bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow 
@@ -25,18 +25,18 @@
         <span class="inline-flex items-center justify-center size-9 rounded-full
                     border border-light-onSurface dark:border-dark-onSurface">
           @switch(tech) {
-          @case ('java') {
-          <app-java-icon className="size-6" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
-          }
-          @case ('android') {
-          <app-android-icon className="size-6" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
-          }
-          @case ('sqlite') {
-          <app-sqlite-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
-          }
-          @default {
-          <span> {{ tech }}</span>
-          }
+            @case ('java') {
+            <app-java-icon className="size-6" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+            }
+            @case ('android') {
+            <app-android-icon className="size-6" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+            }
+            @case ('sqlite') {
+            <app-sqlite-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+            }
+            @default {
+            <span> {{ tech }}</span>
+            }
           }
         </span>
         }

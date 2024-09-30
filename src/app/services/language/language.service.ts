@@ -19,6 +19,9 @@ export class LanguageService {
     this._translations = new BehaviorSubject<any>({});
     this._loadingState = new BehaviorSubject<boolean>(true); 
     this.initializeLanguage();
+    this._translations.subscribe(translations => {
+      this.updateHtmlTitle(translations);
+    });
   }
 
   private initializeLanguage(): void {
@@ -54,6 +57,11 @@ export class LanguageService {
 
   private updateHtmlLang(language: string): void {
     document.documentElement.lang = language; 
+  }
+
+  private updateHtmlTitle(translations: any): void {
+    const title = translations.title || 'Minka...';
+    document.title = title;
   }
 
   public get translations() {

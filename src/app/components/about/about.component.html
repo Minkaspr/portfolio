@@ -1,4 +1,4 @@
-<section class="my-6">
+<section id="about" class="my-6">
   @let translations = translations$ | async;
   @let darkTheme = darkTheme$ | async;
   <h2 class="text-3xl font-bold text-center">{{ translations.aboutUs.title }}</h2>
@@ -61,7 +61,7 @@
           <app-card-skill-section 
             textTitle="{{ translations.aboutUs.sections[3].items[0].title }}"
             textDescription="{{ translations.aboutUs.sections[3].items[0].content }}">
-            <app-code-icon className="w-8 h-8" [strokeColor]="darkTheme ? '#417386' : '#023042'" />
+            <app-code-icon className="w-8 h-8 text-light-primary dark:text-dark-primary"  />
           </app-card-skill-section>
         </li>
         <li>

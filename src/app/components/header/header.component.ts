@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Renderer2, Input } from '@angular/core';
 import { ThemeService } from '../../services/theme/theme.service';
 import { LanguageService } from '../../services/language/language.service';
 import { FolderLightIconComponent } from '../icons/folder-light-icon/folder-light-icon.component';
@@ -23,9 +23,9 @@ import { DropdownComponent } from '../dropdown/dropdown.component';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit{
+  @Input() activeSection: string = 'hero';
   @Output() sectionSelected = new EventEmitter<string>();
   
-  public activeSection: string = 'hero';
   public darkTheme: boolean = false;
   public isLoading: boolean = true;
   public translations: any = {};
@@ -33,9 +33,11 @@ export class HeaderComponent implements OnInit{
   public selectedLanguage: string = '';
   public visibleMenu: boolean = false;
 
+
   constructor(
     private themeService: ThemeService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
@@ -73,6 +75,10 @@ export class HeaderComponent implements OnInit{
     }
   }
 
+  public updateActiveSection(sectionId: string): void {
+    this.activeSection = sectionId;
+  }
+
   public toggleTheme(): void {
     this.darkTheme = !this.darkTheme;
     localStorage.setItem('currentTheme', this.darkTheme ? 'dark' : 'light');
@@ -85,5 +91,12 @@ export class HeaderComponent implements OnInit{
 
   public toggleMenu(): void {
     this.visibleMenu = !this.visibleMenu;
+    if (this.visibleMenu) {
+      this.renderer.addClass(document.body, 'no-scroll');
+      console.log('Scroll deshabilitado');
+    } else {
+      this.renderer.removeClass(document.body, 'no-scroll');
+      console.log('Scroll habilitado');
+    }
   }
 }
