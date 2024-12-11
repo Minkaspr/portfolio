@@ -25,10 +25,15 @@ export class LanguageService {
   }
 
   private initializeLanguage(): void {
-    const savedLanguage = localStorage.getItem('language') || this.defaultLanguage;
+    const savedLanguage = localStorage.getItem('language') || this.getDeviceLanguage();
     const initialLanguage = this.getInitialLanguage(savedLanguage);
     this.setLanguage(initialLanguage);
     localStorage.setItem('language', initialLanguage);
+  }
+
+  private getDeviceLanguage(): string {
+    const deviceLanguage = navigator.language || navigator.languages[0];
+    return deviceLanguage.startsWith('es') ? 'es' : 'en';
   }
 
   private getInitialLanguage(savedLanguage: string): string {
