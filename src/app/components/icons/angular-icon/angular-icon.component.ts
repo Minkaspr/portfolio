@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-mysql-icon',
+  selector: 'app-angular-icon',
   standalone: true,
   imports: [],
-  templateUrl: './mysql-icon.component.html',
-  styleUrl: './mysql-icon.component.css'
+  templateUrl: './angular-icon.component.html',
+  styleUrl: './angular-icon.component.css'
 })
-export class MysqlIconComponent {
+export class AngularIconComponent {
   @Input() className: string = '';
   @Input() fillColor: string ='currentColor'
 }

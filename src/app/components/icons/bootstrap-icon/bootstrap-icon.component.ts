@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-php-icon',
+  selector: 'app-bootstrap-icon',
   standalone: true,
   imports: [],
-  templateUrl: './php-icon.component.html',
-  styleUrl: './php-icon.component.css'
+  templateUrl: './bootstrap-icon.component.html',
+  styleUrl: './bootstrap-icon.component.css'
 })
-export class PhpIconComponent {
+export class BootstrapIconComponent {
   @Input() className: string = ''; 
   @Input() fillColor: string ='currentColor'
 }

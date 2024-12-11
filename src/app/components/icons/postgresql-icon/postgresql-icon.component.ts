@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-php-icon',
+  selector: 'app-postgresql-icon',
   standalone: true,
   imports: [],
-  templateUrl: './php-icon.component.html',
-  styleUrl: './php-icon.component.css'
+  templateUrl: './postgresql-icon.component.html',
+  styleUrl: './postgresql-icon.component.css'
 })
-export class PhpIconComponent {
+export class PostgresqlIconComponent {
   @Input() className: string = ''; 
   @Input() fillColor: string ='currentColor'
 }

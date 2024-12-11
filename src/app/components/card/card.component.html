@@ -26,13 +26,34 @@
                     border border-light-onSurface dark:border-dark-onSurface">
           @switch(tech) {
             @case ('java') {
-            <app-java-icon className="size-6" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+            <app-java-icon className="size-[22px]" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
             }
             @case ('android') {
-            <app-android-icon className="size-6" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+            <app-android-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
             }
             @case ('sqlite') {
-            <app-sqlite-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+            <app-sqlite-icon className="size-4" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'" />
+            }
+            @case ('tailwindcss') {
+              <app-tailwindcss-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'"/>
+            }
+            @case ('angular') {
+              <app-angular-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'"/>
+            }
+            @case ('mysql') {
+              <app-mysql-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'"/>
+            }
+            @case ('nodejs') {
+              <app-node-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'"/>
+            }
+            @case ('bootstrap') {
+              <app-bootstrap-icon className="size-6" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'"/>
+            }
+            @case ('php') {
+              <app-php-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'"/>
+            }
+            @case ('postgresql') {
+              <app-postgresql-icon className="size-5" [fillColor]="darkTheme ? '#DCE3E9' : '#40484C'"/>
             }
             @default {
             <span> {{ tech }}</span>
