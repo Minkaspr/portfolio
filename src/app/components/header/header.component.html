@@ -6,7 +6,7 @@
       } @else {
       <app-folder-light-icon className="h-7" fillColor="#156683" id="logo-light" />
       }
-      <span class="font-poppins font-bold text-lg text-light-primary dark:text-dark-primary">{{ translations.brand }}</span>
+      <span class="select-none font-poppins font-bold text-lg text-light-primary dark:text-dark-primary">{{ translations.brand }}</span>
     </div>
     <div [ngClass]="{
         'hidden': !visibleMenu,
@@ -15,11 +15,11 @@
         'md:flex md:items-center md:static md:w-auto md:bg-transparent md:p-0': true
       }">
       @defer(when !isLoading){
-      <ul class="flex flex-col md:flex-row justify-center items-center gap-8 h-lvh md:h-auto ">
+      <ul class="select-none flex flex-col md:flex-row justify-center items-center gap-8 h-lvh md:h-auto ">
         <li>
           <a 
             (click)="onSectionSelect('hero')" 
-            class="nav-link" 
+            class="nav-link cursor-pointer" 
             [ngClass]="{'active': activeSection === 'hero'}">
             {{translations?.nav?.home}}
           </a>
@@ -27,7 +27,7 @@
         <li>
           <a 
             (click)="onSectionSelect('projects')" 
-            class="nav-link"
+            class="nav-link cursor-pointer"
             [ngClass]="{'active': activeSection === 'projects'}">
             {{translations?.nav?.projects}}
           </a>
@@ -35,7 +35,7 @@
         <li>
           <a 
             (click)="onSectionSelect('about')" 
-            class="nav-link"
+            class="nav-link cursor-pointer"
             [ngClass]="{'active': activeSection === 'about'}">
             {{translations?.nav?.about}}
           </a>
