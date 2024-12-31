@@ -66,23 +66,60 @@
           },
           {
             "title": "Bases de Datos",
-            "content": "MySQL, SQLite"
+            "content": "MySQL, PostgreSQL, SQLite"
           },
           {
             "title": "Herramientas de Desarrollo",
-            "content": "VSCode, Netbeans, IntelliJ IDEA, Android Studio, Project IDX"
+            "content": "Git, VSCode, Netbeans, IntelliJ IDEA, Android Studio, Project IDX"
           },
           {
             "title": "Gestión de Proyectos",
             "content": "Scrum, Kanban"
           },
           {
-            "title": "Otras Herramientas",
-            "content": "Microsoft Project, Bizagi, Git, GitHub, Jira, Notion"
+            "title": "Herramientas de Gestión",
+            "content": "GitHub, Jira, Microsoft Project, Bizagi"
           },
           {
             "title": "Prototipado",
             "content": "Figma"
+          }
+        ]
+      },
+      {
+        "title": "Competencias Personales",
+        "items": [
+          {
+            "title": "Habilidades Blandas",
+            "content": [
+              "Trabajo en equipo",
+              "Comunicación efectiva",
+              "Resolución de problemas",
+              "Adaptabilidad",
+              "Gestión del tiempo",
+              "Proactividad",
+              "Aprendizaje continuo",
+              "Receptividad a la retroalimentación"
+            ]
+          },
+          {
+            "title": "Herramientas Generales",
+            "content": [
+              "Word",
+              "Excel",
+              "PowerPoint",
+              "Google Docs",
+              "Notion",
+              "Canva",
+              "Discord"
+            ]
+          },
+          {
+            "title": "Idiomas",
+            "content": [
+              "Español",
+              "Inglés"
+            ]
           }
         ]
       }
@@ -92,7 +129,7 @@
     "message": "Gracias por visitar mi portafolio. Espero que encuentres mis proyectos interesantes y útiles.",
     "connect": {
       "title": "Conéctate conmigo",
-      "links":  [
+      "links": [
         {
           "name": "LinkedIn",
           "url": "https://www.linkedin.com/in/dario-quispe-mk"

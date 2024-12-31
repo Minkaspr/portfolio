@@ -66,23 +66,60 @@
           },
           {
             "title": "Databases",
-            "content": "MySQL, SQLite"
+            "content": "MySQL, PostgreSQL, SQLite"
           },
           {
             "title": "Development Tools",
-            "content": "VSCode, Netbeans, IntelliJ IDEA, Android Studio, Project IDX"
+            "content": "Git, VSCode, Netbeans, IntelliJ IDEA, Android Studio, Project IDX"
           },
           {
             "title": "Project Management",
             "content": "Scrum, Kanban"
           },
           {
-            "title": "Other Tools",
-            "content": "Microsoft Project, Bizagi, Git, GitHub, Jira, Notion"
+            "title": "Management Tools",
+            "content": "GitHub, Jira, Microsoft Project, Bizagi"
           },
           {
             "title": "Prototyping",
             "content": "Figma"
+          }
+        ]
+      },
+      {
+        "title": "Personal Competencies",
+        "items": [
+          {
+            "title": "Soft Skills",
+            "content": [
+              "Teamwork",
+              "Effective Communication",
+              "Problem Solving",
+              "Adaptability",
+              "Time Management",
+              "Proactivity",
+              "Continuous Learning",
+              "Receptiveness to Feedback"
+            ]
+          },
+          {
+            "title": "General Tools",
+            "content": [
+              "Word",
+              "Excel",
+              "PowerPoint",
+              "Google Docs",
+              "Notion",
+              "Canva",
+              "Discord"
+            ]
+          },
+          {
+            "title": "Languages",
+            "content": [
+              "Spanish",
+              "English"
+            ]
           }
         ]
       }
@@ -92,7 +129,7 @@
     "message": "Thank you for visiting my portfolio. I hope you find my projects interesting and useful.",
     "connect": {
       "title": "Connect with me",
-      "links":  [
+      "links": [
         {
           "name": "LinkedIn",
           "url": "https://www.linkedin.com/in/dario-quispe-mk"

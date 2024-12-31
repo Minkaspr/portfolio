@@ -16,6 +16,9 @@ import { UserIconComponent } from '../icons/user-icon/user-icon.component';
 import { AffiliateIconComponent } from '../icons/affiliate-icon/affiliate-icon.component';
 import { AtIconComponent } from '../icons/at-icon/at-icon.component';
 import { CardSkillSectionComponent } from "../card-skill-section/card-skill-section.component";
+import { StarIconComponent } from "../icons/star-icon/star-icon.component";
+import { DeviceLaptopIconComponent } from "../icons/device-laptop-icon/device-laptop-icon.component";
+import { WorldIconComponent } from "../icons/world-icon/world-icon.component";
 
 @Component({
   selector: 'app-about',
@@ -34,7 +37,10 @@ import { CardSkillSectionComponent } from "../card-skill-section/card-skill-sect
     UserIconComponent,
     AffiliateIconComponent,
     AtIconComponent,
-    CardSkillSectionComponent
+    CardSkillSectionComponent,
+    StarIconComponent,
+    DeviceLaptopIconComponent,
+    WorldIconComponent
 ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
