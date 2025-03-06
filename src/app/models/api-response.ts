@@ -1,7 +1,7 @@
-import { Project } from "./project";
+import { ApiProject } from "./api-project";
 
 export interface ApiResponse {
-  statusCode: number;
-  statusMessage: string;
-  data: Project[];
+  status: string;
+  message: string;
+  data: ApiProject[];
 }

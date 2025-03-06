@@ -3,6 +3,7 @@ import { CardComponent } from "../card/card.component";
 import { Project } from '../../models/project';
 import { ApiService } from '../../services/api/api.service';
 import { LanguageService } from '../../services/language/language.service';
+import { ApiProject } from '../../models/api-project';
 
 @Component({
   selector: 'app-projects',
@@ -63,20 +64,34 @@ export class ProjectsComponent implements OnInit{
   private loadProjects(): void {
     this.apiService.getProjects().subscribe({
       next: (response) => {
-        if (response.statusCode === 200) {
-          this.projects = response.data;
+        if (response.status === 'success') {
+          //console.log('Respuesta de la API (JSON):', JSON.stringify(response, null, 2));
+  
+          const apiProjects: ApiProject[] = response.data;
+  
+          this.projects = apiProjects.map((project) => ({
+            id: project.id,
+            projectCode: project.projectCode,
+            title: project.texts.title,
+            description: project.texts.description,
+            imageUrl: project.imageUrl,
+            technologies: project.technologies,
+            detailsUrl: project.detailsUrl
+          }));
+  
           this.updateDisplayedProjects();
-          console.log('Proyectos obtenidos:', this.projects);
+          //console.log('Proyectos obtenidos:', this.projects);
         } else {
           this.error = 'Error en la respuesta de la API';
         }
       },
       error: (err) => {
-        console.error('Error en la conexión con la API:', err);
+        //console.error('Error en la conexión con la API:', err);
         this.error = 'Error en la conexión con la API';
       }
     });
   }
+  
 
   private updateDisplayedProjects(): void {
     const totalProjectsToShow = this.rowsToShow * this.columns;

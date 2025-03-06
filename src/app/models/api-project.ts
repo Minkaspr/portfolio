@@ -1,8 +1,10 @@
-export interface Project {
+export interface ApiProject {
   id: number;
   projectCode: string;
-  title: string;
-  description: string;
+  texts: {
+    title: string;
+    description: string;
+  };
   imageUrl: string;
   technologies: string[];
   detailsUrl: string;

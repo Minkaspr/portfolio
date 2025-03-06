@@ -1,5 +1,4 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { ThemeService } from './services/theme/theme.service';
 import { LanguageService } from './services/language/language.service';
@@ -12,7 +11,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, LoadingPlaceholderComponent, HeroComponent, ProjectsComponent, AboutComponent, FooterComponent],
+  imports: [HeaderComponent, LoadingPlaceholderComponent, HeroComponent, ProjectsComponent, AboutComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -44,7 +43,7 @@ export class AppComponent implements OnInit {
     if (currentSectionId && currentSectionId !== this.activeSection) {
       this.activeSection = currentSectionId;
       this.updateHash(currentSectionId);
-      this.notifyHeader(currentSectionId);
+      //this.notifyHeader(currentSectionId);
     }
   }
 

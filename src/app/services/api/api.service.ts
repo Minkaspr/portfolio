@@ -8,14 +8,14 @@ import { ApiResponse } from '../../models/api-response';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://demo3565171.mockable.io';
+  private apiUrl = 'https://dev-highlights-be.vercel.app/api/v1'
 
   constructor(private http: HttpClient, private languageService: LanguageService) {}
 
   getProjects(): Observable<ApiResponse> {
     return this.languageService.currentLanguage.pipe(
       switchMap(language => {
-        const url = `${this.apiUrl}/${language}/portfolio/projects/getAll`;
+        const url = `${this.apiUrl}/projects/lang/${language}`;
         return this.http.get<ApiResponse>(url).pipe(
           catchError(this.handleError)
         );
